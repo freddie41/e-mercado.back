@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
+
+  <!-- Google APIs Google OAuth 2.0 -->
   <meta name="google-signin-client_id"
     content="428794117897-af3u2j4lhobceldnrq8s6cdnnuucd6l8.apps.googleusercontent.com">
   <script src="https://apis.google.com/js/platform.js" async defer></script>
@@ -46,6 +48,20 @@
       text-align: center;
       bottom: 1px;
     }
+
+    .or-break {
+      border-bottom: 1px solid #e4e4e4;
+      color: #999;
+      font-size: 13px;
+      line-height: 0;
+      margin: 20px -15px;
+      text-align: center;
+    }
+
+    .or-break>span {
+      background: #f8f9fa;
+      padding: 0 10px;
+    }
   </style>
 </head>
 
@@ -64,13 +80,41 @@
       <div class="mb-3">
         <button id="loginBtn" class="btn btn-lg btn-info btn-block">Ingresar</button>
       </div>
+
+      <div class="or-break">
+        <span>O</span>
+      </div>
+
+      <!-- Sign in with Google btn with standard CSS -->
       <div id="my-signin2"></div>
+      <script>
+        function onSuccess(googleUser) {
+          window.location = "homepage.html";
+        }
+        function onFailure(error) {
+          console.log(error);
+        }
+        function renderButton() {
+          gapi.signin2.render('my-signin2', {
+            'scope': 'profile email',
+            'width': 300,
+            'height': 50,
+            'longtitle': true,
+            'theme': 'white',
+            'onsuccess': onSuccess,
+            'onfailure': onFailure,
+          });
+        }
+      </script>
+
+      <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
     </div>
   </div>
+  
   <p class="copyright">&copy; Jóvenes a Programar 2021</p>
+
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
-  <script src="js/google_signin.js"></script>
 
 </body>
 
