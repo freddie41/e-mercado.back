@@ -6,13 +6,13 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
+  <title>eMercado - Todo lo que busques está aquí</title>
 
-  <!-- Google APIs Google OAuth 2.0 -->
+  <!-- Google APIs para Google OAuth 2.0 -->
   <meta name="google-signin-client_id"
     content="428794117897-af3u2j4lhobceldnrq8s6cdnnuucd6l8.apps.googleusercontent.com">
   <script src="https://apis.google.com/js/platform.js" async defer></script>
-
-  <title>eMercado - Todo lo que busques está aquí</title>
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script> 
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
@@ -108,8 +108,12 @@
 
         var reintentosDeCargaGoogleBtn = 0;
 
+        //Función para controlar que al finalizar
+        //la carga del btn se pueda cambiar el default btn txt a español
         function onInit() {
-          console.log("checkpoint");
+
+          //Utilizo un timer con un control de errores para el cambio de txt para reducir
+          // el tiempo en el que carga del botón y hacer el cambio de txt lo antes posible
           setTimeout(function () {
             try {
               document.getElementById("my-signin2")
@@ -127,8 +131,6 @@
         }
         window.onload = onInit;
       </script>
-
-      <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
     </div>
   </div>
 
