@@ -85,8 +85,8 @@
         <span>O</span>
       </div>
 
-      <!-- Sign in with Google btn with standard CSS -->
-      <div id="my-signin2"></div>
+      <!-- Sign in with Google btn with CSS -->
+      <div id="my-signin2" style="display:none"></div>
       <script>
         function onSuccess(googleUser) {
           window.location = "homepage.html";
@@ -105,12 +105,33 @@
             'onfailure': onFailure,
           });
         }
+
+        var reintentosDeCargaGoogleBtn = 0;
+
+        function onInit() {
+          console.log("checkpoint");
+          setTimeout(function () {
+            try {
+              document.getElementById("my-signin2")
+                .getElementsByClassName("abcRioButtonContents")[0]
+                .getElementsByTagName("span")[0]
+                .innerText = "Acceder con Google";
+              document.getElementById("my-signin2").style.display = "block";
+            } catch {
+              reintentosDeCargaGoogleBtn += 1;
+              if (reintentosDeCargaGoogleBtn < 5) {
+                onInit();
+              }
+            }
+          }, 100);
+        }
+        window.onload = onInit;
       </script>
 
       <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
     </div>
   </div>
-  
+
   <p class="copyright">&copy; Jóvenes a Programar 2021</p>
 
   <script src="js/init.js"></script>
