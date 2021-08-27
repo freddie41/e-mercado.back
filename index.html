@@ -12,7 +12,7 @@
   <meta name="google-signin-client_id"
     content="428794117897-af3u2j4lhobceldnrq8s6cdnnuucd6l8.apps.googleusercontent.com">
   <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script> 
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
@@ -85,8 +85,9 @@
         <span>O</span>
       </div>
 
-      <!-- Sign in with Google btn with CSS -->
+      <!-- Sign in with Google -->
       <div id="my-signin2" style="display:none"></div>
+
       <script>
         function onSuccess(googleUser) {
           window.location = "homepage.html";
@@ -112,8 +113,8 @@
         //la carga del btn se pueda cambiar el default btn txt a español
         function onInit() {
 
-          //Utilizo un timer con un control de errores para el cambio de txt para reducir
-          // el tiempo en el que carga del botón y hacer el cambio de txt lo antes posible
+          //Timer con un control de errores para el cambio de txt que reduce
+          // el tiempo en el que carga del botón y se ejecuta el cambio de txt
           setTimeout(function () {
             try {
               document.getElementById("my-signin2")
@@ -131,6 +132,7 @@
         }
         window.onload = onInit;
       </script>
+
     </div>
   </div>
 
