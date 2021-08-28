@@ -1,8 +1,12 @@
 {
+  "dependencies": {
+    "lite-server": "^2.6.1"
+  },
   "name": "e-mercado.sandbox",
-  "version": "1.0.0",
   "description": "",
+  "version": "1.0.0",
   "main": "index.js",
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "lite-server"
@@ -11,7 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/freddie41/e-mercado.sandbox.git"
   },
-  "author": "",
+  "author": "Freddie",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/freddie41/e-mercado.sandbox/issues"
