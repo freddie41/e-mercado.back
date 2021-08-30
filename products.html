@@ -57,7 +57,46 @@
       </script>
     </div>
   </nav>
-  <div class="container p-5">
+  <!-- Botones de ordenamiento por precio y relevancia -->
+  <div class="mt-3 container">
+    <div class="row">
+      <div class="col text-right">
+        <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+          <label class="btn btn-light" id="sortAscCost">
+            <input type="radio" name="options" autocomplete="off">Menor precio
+          </label>
+          <label class="btn btn-light" id="sortDescCost">
+            <input type="radio" name="options" autocomplete="off">Mayor precio
+          </label>
+          <label class="btn btn-light active" id="sortByrRelevance">
+            <input type="radio" name="options" autocomplete="off" checked><i class="fas fa-sort-amount-down mr-1"></i>Relevancia
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-end">
+      <div class="col-md-6"></div>
+      <div class="col-md-6 col-sm-12 mb-1 container">
+        <div class="row container p-0 m-0">
+          <div class="col">
+            <p class="font-weight-normal text-right my-2">Precio USD</p>
+          </div>
+          <div class="col">
+            <input class="form-control" type="number" placeholder="min." id="rangeFilterMinCost">
+          </div>
+          <div class="col">
+            <input class="form-control" type="number" placeholder="máx." id="rangeFilterMaxCost">
+          </div>
+          <div class="col-3 p-0">
+            <div class="btn-group" role="group">
+              <button class="btn btn-light btn-block" id="rangeFilterCost">Filtrar</button>
+              <button class="btn btn-li btn-sm" id="clearRangeFilter">Limpiar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="container p-2">
 
     <!--Se agrega un espacio vacio para luego colocar la lista de productos desde "productos.js"-->
     <div class="row">
