@@ -73,6 +73,7 @@ function showProductsList() {
         let product = item;
 
         // Control para modificar el listado a mostrar aplicando el filtro por precio minimo y maximo
+        // FALTA CONTEMPLAR EL CASO DE INGRESAR UN minCost mayor a un existente de la lista
         if (((minCost == undefined) || (minCost != undefined && parseInt(product.cost) >= minCost)) &&
             ((maxCost == undefined) || (maxCost != undefined && parseInt(product.cost) <= maxCost))) {
 
