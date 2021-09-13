@@ -1,7 +1,4 @@
-var FIAT_PRODUCT_INFO = "https://japdevdep.github.io/ecommerce-api/product/5678.json";
-var SUZUKI_PRODUCT_INFO = "https://japdevdep.github.io/ecommerce-api/product/5678-comments.json";
-var PEUGEOT_PRODUCT_INFO = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
-var CHEVROLET_PRODUCT_INFO = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
+var PRODUCT_INFO = "https://freddie41.github.io/e-mercado.sandbox/cars_api/";
 
 var product = {};
 
@@ -25,9 +22,9 @@ function showImagesGallery(array){
     }
 }
 
-function showProductInfo (product) {
-    
-    getJSONData(product).then(function(resultObj){
+// Función para mostrar la info del producto segun el ID guardado en localStorage
+function showProductInfo (productID) {
+    getJSONData(PRODUCT_INFO + productID + ".json").then(function(resultObj){
         if (resultObj.status === "ok")
         {
             product = resultObj.data;
@@ -48,16 +45,33 @@ function showProductInfo (product) {
     });
 }
 
+function showProductComments () {
+    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
+        if (resultObj.status === "ok")
+        {
+            productComments = resultObj.data;
+
+            let commentDescriptionHTML = document.getElementById("productDescription");
+            let commentUserHTML = document.getElementById("productCategory");
+            let commentDateHTML = document.getElementById("productCost");
+        
+            commentDescriptionHTML.innerHTML = productComments.description;
+            commentUserHTML.innerHTML = productComments.user;
+            commentDateHTML.innerHTML = productComments.dateTime;
+
+            //Muestro las imagenes en forma de galería
+            showImagesGallery(product.images);
+        }
+    });
+}
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
 
   // Importación del id almacenado al selecciponar el producto 
-  var productID = localStorage.getItem("product");
-  
-  // Control para hacer el llamado a al endpoint correspondiente segun el id almacenado
-  if (productID.indexOf = "fiat") {
+  var product = JSON.parse(localStorage.getItem("productID"));
 
-  }
+    showProductInfo(product.productID);
 });
