@@ -11,8 +11,5 @@
     "img/cars/chevrolet/chevrolet1_3.jpg",
     "img/cars/chevrolet/chevrolet1_4.jpg"
   ],
-  "relatedProducts": [
-    "suzuki",
-    "peugeot"
-  ]
+  "relatedProducts": [2, 3]
 }

@@ -11,8 +11,5 @@
     "img/cars/peugeot/peugeot1_3.jpg",
     "img/cars/peugeot/peugeot1_4.jpg"
   ],
-  "relatedProducts": [
-    "fiat",
-    "chevrolet"
-  ]
+  "relatedProducts": [1, 2]
 }

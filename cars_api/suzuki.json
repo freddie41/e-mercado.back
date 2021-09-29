@@ -11,8 +11,5 @@
     "img/cars/suzuki/suzuki1_3.jpg",
     "img/cars/suzuki/suzuki1_4.jpg"
   ],
-  "relatedProducts": [
-    "peugeot",
-    "fiat"
-  ]
+  "relatedProducts": [4, 1]
 }
