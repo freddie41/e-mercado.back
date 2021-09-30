@@ -1,6 +1,8 @@
 var PRODUCT_INFO = "https://freddie41.github.io/e-mercado.sandbox/cars_api/";
 
-var product = {};
+var productInfo = {};
+
+var productsList = [];
 
 function showImagesGallery(array){
 
@@ -22,25 +24,56 @@ function showImagesGallery(array){
     }
 }
 
+// Función para mostrar info de producto al cliquear en una de las opciones de la lista
+function setProductInfo (id) {
+    localStorage.setItem("productID", JSON.stringify({productID: id}));
+    window.location = "product-info.html";
+}
+
+// Función para mostrar los productos relacionados en el carrusel
+function showRelatedProducts(productsList, relatedProducts){
+
+    let htmlContentToAppend = "";
+
+    for(let item of productsList) {
+
+        let product = item;
+
+        if (relatedProducts.indexOf(item.id) !== -1) {
+
+            htmlContentToAppend += `
+            <div class="card" id="relatedProdCards" onclick="setProductInfo('`+ product.id +`');">
+                <img src="`+ product.imgSrc +`" class="card-img-top" alt="`+ product.description +`">
+                <div class="card-body">
+                    <h5 class="card-title">`+ product.name +`</h5>
+                    <p class="card-text">`+ product.description +`</p>
+                </div>
+            </div>
+            `
+        }
+        document.getElementById("card-deck").innerHTML = htmlContentToAppend;   
+    }
+}
+
 // Función para mostrar la info del producto segun el ID guardado en localStorage
 function showProductInfo (productID) {
     getJSONData(PRODUCT_INFO + productID + ".json").then(function(resultObj){
         if (resultObj.status === "ok")
         {
-            product = resultObj.data;
+            productInfo = resultObj.data;
 
             let productNameHTML  = document.getElementById("productName");
             let productDescriptionHTML = document.getElementById("productDescription");
             let productCategoryHTML = document.getElementById("productCategory");
             let productCostHTML = document.getElementById("productCost");
         
-            productNameHTML.innerHTML = product.name;
-            productDescriptionHTML.innerHTML = product.description;
-            productCategoryHTML.innerHTML = product.category;
-            productCostHTML.innerHTML = product.currency + " " + product.cost;
+            productNameHTML.innerHTML = productInfo.name;
+            productDescriptionHTML.innerHTML = productInfo.description;
+            productCategoryHTML.innerHTML = productInfo.category;
+            productCostHTML.innerHTML = productInfo.currency + " " + productInfo.cost;
 
             //Muestro las imagenes en forma de galería
-            showImagesGallery(product.images);
+            showImagesGallery(productInfo.images);
         }
     });
 }
@@ -161,6 +194,18 @@ document.addEventListener("DOMContentLoaded", function (e) {
         if (resultObj.status === "ok") {
 
             showCommentsList(resultObj.data);
+        }
+    });
+
+    // Trae el listado de productos para mostrar productos relacionados
+    getJSONData(PRODUCTS_URL).then(function (resultObj) {
+        
+        if (resultObj.status === "ok") {
+
+            productsList = resultObj.data;
+
+            //Muestro los productos relacionados en el carrusel
+            showRelatedProducts(productsList, productInfo.relatedProducts);
         }
     });
 });
