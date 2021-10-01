@@ -44,18 +44,25 @@
             <!-- Logout -->
             <a class="dropdown-item" href="#" id="signOut" onclick="signOut();">Salir</a>
             <script>
-              function signOut() {
-                var auth2 = gapi.auth2.getAuthInstance();
-                auth2.signOut()
-                  .then(function () {
-                    localStorage.clear();
-                    window.location.href = "index.html"
-                  });
-              }
               function onLoad() {
                 gapi.load('auth2', function () {
                   gapi.auth2.init();
                 });
+              }
+              
+              function signOut() {
+                
+                let auth2 = gapi.auth2.getAuthInstance();
+                
+                if (auth2 !== null) {
+                  auth2.signOut().then(function () {
+                    localStorage.clear();
+                    window.location.href = "index.html";
+                  });
+                } else {
+                  localStorage.clear();
+                  window.location.href = "index.html";
+                }
               }
             </script>
             <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
