@@ -4,6 +4,7 @@ var productInfo = {};
 
 var productsList = [];
 
+// Función para mostrar un carousel de imágenes
 function showCarousel(id, array) {
 
     var html = $("#" + id).append( `
@@ -22,7 +23,7 @@ function showCarousel(id, array) {
     let indicatorItem = html.find('.carousel-indicators');
     let carouselItem = html.find('.carousel-inner');
 
-    array.forEach((imgSrc, indicator) => {
+    array.forEach((image, indicator) => {
 
         var activeclass = indicator == 0 ? "active" : "";
 
@@ -33,7 +34,7 @@ function showCarousel(id, array) {
 
         carouselItem.append(`
         <div class="carousel-item ` + activeclass + `">
-            <img class="d-block w-100 rounded" src="` + imgSrc + `" alt="First slide">
+            <img class="d-block w-100 rounded" src="` + image + `" alt="First slide">
         </div>
         `);
     });
