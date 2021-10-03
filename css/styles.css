@@ -1,8 +1,8 @@
-.jumbotron, .card-body, .container, .site-header{
+.jumbotron, .card-body, .container, .site-header {
     font-family: 'Raleway', serif !important;
 }
 
-.jumbotron .display-4{
+.jumbotron .display-4 {
     font-weight: bold;
 }
 
@@ -121,7 +121,7 @@ footer p {
   }
 }
 
-#spinner-wrapper{
+#spinner-wrapper {
   position: fixed;
   background-color: rgba(0,0,0,0.5);
   width:100%;
@@ -258,4 +258,8 @@ a.custom-card:hover {
   width: 10px;
   height: 10px;
   border-radius: 100%;
+}
+
+.btn-group-toggle label {
+  cursor: pointer;
 }
