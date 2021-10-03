@@ -259,9 +259,3 @@ a.custom-card:hover {
   height: 10px;
   border-radius: 100%;
 }
-
-#filterSearchAndPrice {
-  width: 100%;
-  display: flex;
-  justify-content: right;
-}
