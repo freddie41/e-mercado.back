@@ -19,10 +19,27 @@
   font-weight: bold;
 }
 
-@media (min-width: 768px) {
+.jumbotron-fluid {
+  height: 41vh;
+  padding: 1em inherit;
+  margin-bottom: 0;
+  background-color: #53C0FB;
+  background: url('../img/cover_back_sm.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: black;
+  font-weight: bold;
+}
+
+@media (min-width: 375px) {
   .jumbotron {
     padding-top: 6rem;
     padding-bottom: 6rem;
+  }
+  .jumbotron-fluid {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 }
 
@@ -280,5 +297,9 @@ a.custom-card:hover {
 }
 
 .btn-group-toggle label {
+  cursor: pointer;
+}
+
+a i {
   cursor: pointer;
 }
