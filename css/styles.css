@@ -303,3 +303,12 @@ a.custom-card:hover {
 a i {
   cursor: pointer;
 }
+
+.card-header .fas {
+  transition: .3s transform ease-in-out;
+  cursor: pointer;
+}
+.card-header .collapsed .fas {
+  transform: rotate(-90deg);
+}
+
