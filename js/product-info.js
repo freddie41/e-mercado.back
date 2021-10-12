@@ -9,7 +9,7 @@ function showCarousel(id, array) {
 
     var html = $("#" + id).append( `
     <ol class="carousel-indicators"></ol>
-    <div class="carousel-inner"></div>
+    <div class="carousel-inner" role="listbox"></div>
     <a class="carousel-control-prev" href="#${id}" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true">
         </span><span class="sr-only">Previous</span>
@@ -33,7 +33,12 @@ function showCarousel(id, array) {
 
         carouselItem.append(`
         <div class="carousel-item ${activeclass}">
-            <img class="d-block w-100 rounded" src="${image}" alt="First slide">
+            <picture>
+                <source srcset="${image}" media="(min-width: 1400px)">
+                <source srcset="${image}" media="(min-width: 769px)">
+                <source srcset="${image}" media="(min-width: 577px)">
+                <img srcset="${image}" alt="responsive image" class="d-block img-responsive">
+            </picture>
         </div>
         `);
     });
@@ -64,7 +69,7 @@ function showCommentsList(commentsList) {
 
         htmlContentToAppend += `
         <div class="row mb-4">
-            <div class="col-sm-9">
+            <div class="col-sm-12">
                 <div class="card ">
                     <div class="card-header">
                         <strong>${comment.user}</strong>
