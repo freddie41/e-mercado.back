@@ -250,8 +250,8 @@ function showProductsCount(array) {
 function showPaymentForms() {
 
   let radios = document.getElementsByName("paymentType");
-  let cardPaymentForm = document.getElementById("bankPaymentForm");
-  let bankPaymentForm = document.getElementById("cardPaymentForm");
+  let cardPaymentForm = document.getElementById("cardPaymentForm");
+  let bankPaymentForm = document.getElementById("bankPaymentForm");
 
   cardPaymentForm.style.display = 'none';
   bankPaymentForm.style.display = 'none';
@@ -260,14 +260,15 @@ function showPaymentForms() {
     radios[i].onclick = function () {
 
       let val = this.value;
+      console.log(val)
 
       if (val == 'cardsradio') {
-        cardPaymentForm.style.display = 'none';
-        bankPaymentForm.style.display = 'block';
-      }
-      if (val == 'banksradio') {
         cardPaymentForm.style.display = 'block';
         bankPaymentForm.style.display = 'none';
+      }
+      if (val == 'banksradio') {
+        cardPaymentForm.style.display = 'none';
+        bankPaymentForm.style.display = 'block';
       }
     }
   }
