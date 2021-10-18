@@ -17,6 +17,7 @@
   color: #888;
   transition: all .3s;
   text-align: left;
+  overflow-y: auto;
 }
 
 .sidebar.active {
@@ -364,10 +365,6 @@ a.custom-card:hover {
   text-decoration: inherit;
 }
 
-.checked {
-  color: orange;
-}
-
 /* enable absolute positioning */
 .inner-addon { 
   position: relative; 
@@ -411,14 +408,19 @@ anchors are inline so you need ot make them block to go full width
   border-radius: 100%;
 }
 
+#commentDate {
+  float: left;
+}
+
+/* Estilo en las calificaciones por estrellas */
 .star-rating {
   line-height:32px;
   font-size:15px;
   float: right;
 }
 
-#commentDate {
-  float: left;
+.checked {
+  color: orange;
 }
 
 .set-star-rating {
