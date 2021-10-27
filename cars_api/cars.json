@@ -74,7 +74,7 @@
     {
         "id": 9,
         "name": "Nissan Kicks",
-        "description": "Con su nuevo diseño, equipamiento y tecnología; convierte el viaje de tu vida en algo increíble.",
+        "description": "Con su nuevo diseño, equipamiento y tecnología; convierte el viaje en algo increíble.",
         "cost": 24500,
         "currency": "USD",
         "imgSrc": "img/cars/nissan/nissan1.jpg",
