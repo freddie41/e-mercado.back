@@ -11,7 +11,7 @@
     {
         "id": 2,
         "name": "Fiat Way",
-        "description": "La versión de Fiat que brinda confort y a un precio accesible.",
+        "description": "La versión de Fiat que brinda confort y seguridad a un precio accesible.",
         "cost": 14500,
         "currency": "USD",
         "imgSrc": "img/cars/fiat/fiat1.jpg",
@@ -42,7 +42,7 @@
         "cost": 21990,
         "currency": "USD",
         "imgSrc": "img/cars/toyota/toyota1.jpg",
-        "soldCount": 41
+        "soldCount": 45
     },
     {
         "id": 6,
@@ -69,7 +69,7 @@
         "cost": 18000,
         "currency": "USD",
         "imgSrc": "img/cars/volkswagen/volkswagen1.jpg",
-        "soldCount": 50
+        "soldCount": 41
     },
     {
         "id": 9,
