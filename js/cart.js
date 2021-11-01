@@ -260,7 +260,6 @@ function showPaymentForms() {
     radios[i].onclick = function () {
 
       let val = this.value;
-      console.log(val)
 
       if (val == 'cardsradio') {
         cardPaymentForm.style.display = 'block';
