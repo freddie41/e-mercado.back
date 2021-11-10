@@ -317,41 +317,6 @@ el site header y dropdown */
   background: white;
 }
 
-/* Control de ancho de las alertas responsive
-para mobile y resoluciones superiores */
-@media (max-width: 576px) {
-  .alert {
-    position: absolute;
-    display: block;
-    font-size: 0.9rem;
-    z-index: 10;
-    top: 157px;
-    width: 92%;
-    left: 50%;
-    transform: translate(-50%, 0);
-  }
-  .dangerAlert {
-    position: absolute;
-    display: block;
-    font-size: 0.9rem;
-    z-index: 10;
-    top: 1593px;
-    width: 92%;
-    left: 50%;
-    transform: translate(-50%, 0);
-  }
-  .successAlert {
-    position: absolute;
-    display: block;
-    font-size: 0.9rem;
-    z-index: 10;
-    top: 1570px;
-    width: 92%;
-    left: 50%;
-    transform: translate(-50%, 0);
-  }
-}
-
 @media (min-width: 720px) {
   .alert{
     position: absolute;
