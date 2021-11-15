@@ -316,12 +316,13 @@ function showProductsCount() {
 function validatePaymentModal() {
  
   let paymentOptions = document.getElementsByName("paymentType");
+  let payRadioErrFeed = document.getElementById("payRadioErrFeed");
   let validateForms = true;
 
   if (!paymentOptions[0].checked && !paymentOptions[1].checked) {
     validateForms = false;
+    payRadioErrFeed.classList.add("is-invalid");
   }
-
   if (paymentOptions[0].checked) {
     let form = document.getElementById("bankPaymentForm");
     if (form.checkValidity() === false) {
@@ -329,7 +330,6 @@ function validatePaymentModal() {
     }
     form.classList.add('was-validated');
   }
-
   if (paymentOptions[1].checked) {
     let form = document.getElementById("cardPaymentForm");
     if (form.checkValidity() === false) {
@@ -515,9 +515,6 @@ $(document).ready(function () {
 .on("change", 'input[type=radio][name="shippingType"]', function () {
   calcShipping();
   calcTotal();
-  if ($()) {
-    
-  }
 })
 //Control de evento para validar el colocar la orden y enviar los datos
 .on("click", "#submitCart", function (event) {
@@ -561,6 +558,7 @@ $(document).ready(function () {
 //Funcion de evento para mostrar solo el form del metodo de pago seleccionado.
 .on("change", "[name=paymentType]", function (event) {
   
+  let payRadioErrFeed = document.getElementById("payRadioErrFeed");
   let cardPaymentForm = $("#cardPaymentForm");
   let bankPaymentForm = $("#bankPaymentForm");
   
@@ -568,10 +566,12 @@ $(document).ready(function () {
     cardPaymentForm.show();
     bankPaymentForm.hide();
     bankPaymentForm.removeClass("was-validated");
+    payRadioErrFeed.classList.remove("is-valid");
   }
   if (event.target.id == 'banksradio') {
     cardPaymentForm.hide();
     bankPaymentForm.show();
     cardPaymentForm.removeClass("was-validated");
+    payRadioErrFeed.classList.remove("is-valid");
   }
 });
