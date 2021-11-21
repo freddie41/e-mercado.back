@@ -289,11 +289,12 @@ function deleteProduct(name) {
     if (result.isConfirmed) {
       
       //Alerta de confirmación del borrado de tipo modal.
-      swalBSStandardBtn.fire(
-        '¡Éxito!',
-        'Artículo borrado del carrito.',
-        'success'
-      )
+      swalBSStandardBtn.fire({
+        title: '¡Éxito!',
+        text: 'Artículo borrado del carrito.',
+        icon: 'success',
+        confirmButtonText: 'Aceptar',
+      })
       //Ejecución del borrado.
       cartProducts = cartProducts.filter(function (product) {
         return product.name !== name;
