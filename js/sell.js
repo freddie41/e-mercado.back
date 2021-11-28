@@ -7,8 +7,6 @@ let PESO_CURRENCY = "Pesos Uruguayos (UYU)";
 let DOLLAR_SYMBOL = "USD ";
 let PESO_SYMBOL = "UYU ";
 let PERCENTAGE_SYMBOL = '%';
-let SUCCESS_MSG = "¡Se ha realizado la publicación con éxito! :)";
-let ERROR_MSG = "Ha habido un error :(, verifica qué pasó.";
 
 //Config de btns de SweetAlert2 para mostrar btns de BS4.
 var swalBSDeleteAcceptButtons = Swal.mixin({
