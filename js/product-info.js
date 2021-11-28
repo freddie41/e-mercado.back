@@ -1,11 +1,32 @@
-//URL base para construir el nombre del archivo JSON.
-var PRODUCT_INFO = "https://freddie41.github.io/e-mercado.sandbox/cars_api/";
-
 //Objeto para guardar la info de productos del endpoint.
 var productInfo = {};
 
 //Array para guardar la lista de productos del endpoint.
 var productsList = [];
+
+//Config de btns de SweetAlert2 para mostrar btns de BS4.
+var swalBSDeleteAcceptButtons = Swal.mixin({
+    customClass: {
+        confirmButton: 'btn btn-danger mx-3 my-2',
+        cancelButton: 'btn btn-secondary mx-3 my-2'
+    },
+    buttonsStyling: false
+  });
+  
+  var swalBSCancelAcceptButtons = Swal.mixin({
+    customClass: {
+        confirmButton: 'btn btn-info mx-3 my-2',
+        cancelButton: 'btn btn-secondary mx-3 my-2'
+    },
+    buttonsStyling: false
+  });
+  
+  var swalBSStandardBtn = Swal.mixin({
+    customClass: {
+        confirmButton: 'btn btn-info mx-3 my-2',
+    },
+    buttonsStyling: false
+  });
 
 //Función para mostrar un carousel de imágenes.
 function showCarousel(id, array) {
@@ -117,20 +138,21 @@ function showUserLogged() {
 
     //Obtienen datos de usuario google y normal guardados en local.
     var userLogged = localStorage.getItem("userLogged");
-    var googleUserLogged = localStorage.getItem("googleUserLogged");
+    var googleUserProfile = localStorage.getItem("googleUserProfile");
     var user = document.getElementById("user");
-  
+
     //Control para mostrar email de usuario normal.
     if (userLogged) {
-      userLogged = JSON.parse(userLogged);
-      user = userLogged.user;
-      return user;
+        userLogged = JSON.parse(userLogged);
+        user = userLogged.user;
+        return user;
     }
     //Control para mostrar email de usuario google.
-    if (googleUserLogged) {
-      googleUserEmail = googleUserLogged;
-      user = googleUserEmail;
-      return googleUserEmail;
+    if (googleUserProfile) {
+        googleUserProfile = JSON.parse(googleUserProfile);
+        googleUserEmail = googleUserProfile.gUserFullName;
+        user = googleUserEmail;
+        return user;
     }
 }
 
@@ -144,6 +166,15 @@ function publishComment() {
             "dateTime": new Date().getTime()
         }
     ]);
+
+    //Alerta de confirmación de tipo modal al guardar comentario con exito.
+    swalBSStandardBtn.fire({
+        title: '¡Éxito!',
+        html: 'El comentario ha sido publicado.',
+        icon: 'success',
+        confirmButtonText: 'Aceptar',
+    });
+
     //Se ejecuta para limpiar el input y rating luego de ingresar un comentario nuevo.
     cleanCommentAndRating();
 }
