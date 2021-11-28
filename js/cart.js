@@ -486,7 +486,7 @@ $(document).ready(function () {
   }
 
   //Funcion que trae listado de productos desde el endpoint.
-  getJSONData(CART_INFO_URL_ARRAY).then(function (resultObj) {
+  getJSONData(CART_INFO_URL).then(function (resultObj) {
 
     if (resultObj.status === "ok") {
 
@@ -604,7 +604,7 @@ $(document).ready(function () {
       html: 'Tu orden ha sido creada.<br>En breves recibirás un email con los datos de la orden.',
       icon: 'success',
       confirmButtonText: 'Aceptar',
-    })
+    });
   }
 })
 //Bindeo de evento que restablece metodo de pago elegido al hacer clic en btn cerrar.

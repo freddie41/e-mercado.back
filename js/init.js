@@ -2,10 +2,9 @@
 const CATEGORIES_URL = "https://japdevdep.github.io/ecommerce-api/category/all.json";
 const CATEGORY_INFO_URL = "https://japdevdep.github.io/ecommerce-api/category/1234.json";
 const PRODUCTS_URL = "https://freddie41.github.io/e-mercado.sandbox/cars_api/cars.json";
-const PRODUCT_INFO_URL = "https://japdevdep.github.io/ecommerce-api/product/5678.json";
+const PRODUCT_INFO = "https://freddie41.github.io/e-mercado.sandbox/cars_api/"; //URL base para construir el nombre del archivo JSON.
 const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/product/5678-comments.json";
-const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
-const CART_INFO_URL_ARRAY = "https://freddie41.github.io/e-mercado.sandbox/cars_api/cart-preset.json";
+const CART_INFO_URL = "https://freddie41.github.io/e-mercado.sandbox/cars_api/cart-preset.json";
 
 //Funciones para mostrar y ocultar spinners de carga.
 var showSpinner = function () {
