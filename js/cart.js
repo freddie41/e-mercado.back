@@ -329,7 +329,7 @@ function deleteCartAll() {
     //Borrado del carrito
     if (result.isConfirmed) {
       cartProducts = [];
-      showCartProducts();;
+      showCartProducts();
     }
   });
 }
